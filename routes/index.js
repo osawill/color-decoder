@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var mcache = require('memory-cache');
+var header_cache = require('express-cache-headers');
+
+router.use(header_cache(6000));
 
 var cache = (duration) => {
   return (req, res, next) => {
